@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout - BeauCure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#ffeef5; font-family:Arial,sans-serif;">
+
+<div class="checkout-container">
+
+<h2>🛍️ Checkout</h2>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter your full name" required><br><br>
+
+<label>Email Address</label>
+<input type="email" placeholder="Enter your email address" required><br><br>
+
+<label>Phone Number</label>
+<input type="text" placeholder="03XX-XXXXXXX" required><br><br>
+
+<label>Delivery Address</label>
+<textarea placeholder="Enter your complete address" rows="4"></textarea><br><br>
+
+<label>Payment Method</label>
+<select>
+    <option>Cash on Delivery</option>
+    <option>Credit/Debit Card</option>
+</select>
+
+<button onclick="placeOrder()">Place Order</button>
+
+</div>
+
+<script>
+function placeOrder(){
+    window.location.href="thankyou.html";
+}
+</script>
+
+</body>
+</html>

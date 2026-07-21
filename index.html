@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BeauCure.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<div id="sideMenu" class="side-menu">
+
+<span class="close-btn" onclick="closeMenu()">&times;</span>
+
+<a href="index.html">Home</a>
+<a href="skincare.html">Skin Care</a>
+<a href="haircare.html">Hair Care</a>
+<a href="makeup.html">Makeup</a>
+<a href="supplements.html">Supplements</a>
+<a href="blog.html">Blog</a>-
+<a href="contact.html">Contact Us</a>
+
+<a href="#" onclick="openLogin()">Login</a>
+
+</div>
+
+<header class="top-header">
+
+<div class="menu-icon" onclick="openMenu()">
+☰
+</div>
+
+<div class="brand-name">
+BEAUCURE.
+</div>
+
+<div class="cart-icon" onclick="toggleCart()">
+🛒
+<span id="cart-count" style="display:none;">0</span>
+</div>
+
+<div class="search-icon" onclick="openSearch()">
+    <i class="fas fa-search"></i>
+</div>
+
+<div id="searchBox" class="search-box" style="display:none;">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search products..."
+        onkeydown="searchProduct(event)">
+</div>
+
+<div id="cart-box" class="cart-box">
+<h3>Shopping Cart</h3>
+
+<div id="cart-items"></div>
+
+<h4>Total: Rs. <span id="cart-total">0</span></h4>
+
+<button onclick="buyNow()">Buy Now</button>
+</div>
+
+</header>
+
+<div class="swiper mySwiper">
+
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide">
+      <img src="images/slide1.jpg">
+    </div>
+
+    <div class="swiper-slide">
+      <img src="images/slide2.jpg">
+    </div>
+
+    <div class="swiper-slide">
+      <img src="images/slide3.webp">
+    </div>
+
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+</div>
+
+<div class="logo">
+<img src="images/logo.png" alt="BeauCure Logo" class="main-logo">
+</div>
+
+<p class="slogan">
+Glow Naturally • Feel Beautiful • Stay Healthy
+</p>
+
+<h2 class="tagline">
+Health & Beauty By Beaucure
+</h2>
+
+<section id="quiz" class="quiz">
+
+<h2>✨ Skin Type Quiz ✨</h2>
+
+<p><b>What is your skin type?</b></p>
+
+<label>
+<input type="radio" name="skin" value="oily">
+🧴 Oily Skin
+</label><br><br>
+
+<label>
+<input type="radio" name="skin" value="dry">
+🌸 Dry Skin
+</label><br><br>
+
+<label>
+<input type="radio" name="skin" value="combination">
+✨ Combination Skin
+</label><br><br>
+
+<label>
+<input type="radio" name="skin" value="sensitive">
+💖 Sensitive Skin
+</label><br><br>
+
+<button onclick="showProducts()">
+Get Recommendation
+</button>
+
+</section>
+<br><br>
+
+<button onclick="showProducts()">
+Get Recommendation
+</button>>
+
+</section>
+
+<section class="categories">
+
+<h2>🛍️ Shop by Category</h2>
+
+<div class="category-container">
+
+<a href="skincare.html" class="category-card">
+<img src="images/skincare-banner.webp">
+<h3>Skincare</h3>
+</a>
+
+<a href="makeup.html" class="category-card">
+<img src="images/makeup-banner.webp">
+<h3>Makeup</h3>
+</a>
+
+<a href="haircare.html" class="category-card">
+<img src="images/haircare-banner.webp">
+<h3>Haircare</h3>
+</a>
+
+<a href="supplements.html" class="category-card">
+<img src="images/supplements-banner.webp">
+<h3>Supplements</h3>
+</a>
+
+</div>
+
+</section>
+
+<section class="offer-banner">
+
+<div class="offer-content">
+
+<h2>🎉 Special Beauty Offer 🎉</h2>
+
+<p>Get <b>20% OFF</b> on all Skincare Products!</p>
+
+<a href="skincare.html">
+<button>Shop Now</button>
+</a>
+
+</div>
+
+</section>
+
+<section class="best-sellers">
+
+<h2> Best Sellers </h2>
+<h2>🌸Our most loved products🌸</h2>
+
+<div class="products">
+
+<div class="product">
+<img src="images/serum.jpg" alt="Vitamin C Serum">
+<h3>Vitamin C Serum</h3>
+<p>Brightens skin and gives a natural glow.</p>
+<h3>Rs. 2250</h3>
+<button onclick="showSerumDetails()">View Details</button>
+</div>
+
+<div id="serum-details" style="display:none;">
+
+<h3>Vitamin C Serum</h3>
+
+<p><b>Price:</b> Rs. 2250</p>
+
+<p><b>Best For:</b> Dry, Normal & Combination Skin</p>
+
+<p><b>Ingredients:</b> Vitamin C, Hyaluronic Acid, Aloe Vera</p>
+
+<p><b>Benefits:</b></p>
+
+<ul>
+<li>Brightens skin</li>
+<li>Reduces dark spots</li>
+<li>Hydrates skin</li>
+<li>Improves skin texture</li>
+</ul>
+
+<button onclick="addToCart('Vitamin C Serum',2250,'images/serum.jpg')">Add To Cart</button>
+<button onclick="buyNow()">Buy Now</button>
+
+</div>
+
+<div class="product">
+<img src="images/facewash.jpg" alt="Face Wash">
+<h3>Face Wash</h3>
+<p>Deep cleansing for fresh and healthy skin.</p>
+<h3>Rs. 950</h3>
+<button onclick="showFaceWashDetails()">View Details</button>
+</div>
+
+<div id="facewash-details" style="display:none;">
+
+<h3>Face Wash</h3>
+
+<p><b>Price:</b> Rs. 950</p>
+
+<p><b>Best For:</b> Oily & Acne-Prone Skin</p>
+
+<p><b>Ingredients:</b> Aloe Vera, Tea Tree, Neem</p>
+
+<p><b>Benefits:</b></p>
+
+<ul>
+<li>Deep cleansing</li>
+<li>Removes excess oil</li>
+<li>Refreshes skin</li>
+<li>Helps prevent acne</li>
+</ul>
+
+<button onclick="addToCart('Face Wash',950,'images/facewash.jpg')">Add To Cart</button>
+<button onclick="buyNow()">Buy Now</button>
+
+</div>
+
+<div class="product">
+<img src="images/shampoo.jpg" alt="Shampoo">
+<h3>Herbal Shampoo</h3>
+<p>Strengthens hair and reduces hair fall.</p>
+<h3>Rs. 750</h3>
+<button onclick="showShampooDetails()">View Details</button>
+</div>
+
+<div id="shampoo-details" style="display:none;">
+
+<h3>Herbal Shampoo</h3>
+
+<p><b>Price:</b> Rs. 750</p>
+
+<p><b>Best For:</b> Weak & Damaged Hair</p>
+
+<p><b>Ingredients:</b> Aloe Vera, Rosemary, Biotin</p>
+
+<p><b>Benefits:</b></p>
+
+<ul>
+<li>Reduces hair fall</li>
+<li>Strengthens roots</li>
+<li>Cleans scalp</li>
+<li>Promotes healthy hair growth</li>
+</ul>
+
+<button onclick="addToCart('Herbal Shampoo',750,'images/shampoo.jpg')">Add To Cart</button>
+<button onclick="buyNow()">Buy Now</button>
+
+</div>
+
+<div class="product">
+<img src="images/biotin.jpg" alt="Biotin">
+<h3>Biotin Supplement</h3>
+<p>Supports healthy hair, skin and nails.</p>
+<h3>Rs. 1800</h3>
+<button onclick="showBiotinDetails()">View Details</button>
+</div>
+
+<div id="biotin-details" style="display:none;">
+
+<h3>Biotin Supplement</h3>
+
+<p><b>Price:</b> Rs. 1800</p>
+
+<p><b>Best For:</b> Hair, Skin & Nails</p>
+
+<p><b>Ingredients:</b> Biotin, Zinc, Vitamin E</p>
+
+<p><b>Benefits:</b></p>
+
+<ul>
+<li>Supports hair growth</li>
+<li>Strengthens nails</li>
+<li>Improves skin health</li>
+<li>Daily nutritional support</li>
+</ul>
+
+<button onclick="addToCart('Biotin Supplement',1800,'images/biotin.jpg')">Add To Cart</button>
+<button onclick="buyNow()">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="images/lipstick.jpg" alt="Lipstick">
+<h3>Matte Lipstick</h3>
+<p>Long-lasting color with a smooth finish.</p>
+<h3>Rs. 1500</h3>
+<button onclick="showLipstickDetails()">View Details</button>
+</div>
+
+<div id="lipstick-details" style="display:none;">
+<h3>Matte Lipstick Details</h3>
+<p><b>Price:</b> Rs. 1500</p>
+<p><b>Best For:</b> All Skin Types</p>
+<p><b>Ingredients:</b> Vitamin E, Natural Pigments</p>
+<p><b>Benefits:</b></p>
+<ul>
+<li>Long-lasting color</li>
+<li>Smooth finish</li>
+<li>Lightweight formula</li>
+</ul>
+<button onclick="addToCart('Matte Lipstick',1500,'images/lipstick.jpg')">Add To Cart</button>
+<button onclick="buyNow()">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="images/moisturizer.jpg" alt="Moisturizer">
+<h3>Moisturizer</h3>
+<p>Keeps skin soft, hydrated and glowing.</p>
+<h3>Rs. 3000</h3>
+<button onclick="showMoisturizerDetails()">View Details</button>
+</div>
+
+<div id="moisturizer-details" style="display:none;">
+<h3>Moisturizer Details</h3>
+<p><b>Price:</b> Rs. 3000</p>
+<p><b>Best For:</b> Dry & Normal Skin</p>
+<p><b>Ingredients:</b> Hyaluronic Acid, Aloe Vera</p>
+<p><b>Benefits:</b></p>
+<ul>
+<li>Deep hydration</li>
+<li>Soft glowing skin</li>
+<li>Locks moisture</li>
+</ul>
+<button onclick="addToCart('Moisturizer',3000,'images/moisturizer.jpg')">Add To Cart</button>
+<button onclick="buyNow()">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="images/bodyoil.jpg" alt="bodyoil">
+<h3>bodyoil</h3>
+<p>Keeps skin soft, hydrated and glowing.</p>
+<h3>Rs. 2500</h3>
+<button onclick="showBodyOilDetails()">View Details</button>
+</div>
+
+<div id="bodyoil-details" style="display:none;">
+<h3>Body Oil Details</h3>
+<p><b>Price:</b> Rs. 2500</p>
+<p><b>Best For:</b> Dry Skin</p>
+<p><b>Ingredients:</b> Coconut Oil, Almond Oil</p>
+<p><b>Benefits:</b></p>
+<ul>
+<li>Nourishes skin</li>
+<li>Adds natural glow</li>
+<li>Prevents dryness</li>
+</ul>
+<button onclick="addToCart('Body Oil',2500,'images/bodyoil.jpg')">Add To Cart</button>
+<button onclick="buyNow()">Buy Now</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="reviews">
+
+<h2>💖 What Our Customers Say</h2>
+
+<div class="review-container">
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"Amazing products! My skin feels so fresh after using BeauCure."</p>
+<h4>- Ayesha</h4>
+</div>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"The Vitamin C Serum really brightened my skin. Highly recommended!"</p>
+<h4>- Hira</h4>
+</div>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"Fast delivery and excellent quality. I will definitely shop again."</p>
+<h4>- Fatima</h4>
+</div>
+
+</div>
+
+</section>
+
+<div id="loginPopup" class="login-popup">
+
+<div class="login-content">
+
+<span class="close" onclick="closeLogin()">×</span>
+
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+</div>
+
+<footer class="footer">
+
+    <h2>BEAUCURE.</h2>
+
+    <p>Your Beauty & Wellness Partner</p>
+
+    <p>📍 Karachi, Pakistan</p>
+
+    <p>📧 info@beaucure.com</p>
+
+    <p>📞 +92 315 2750771</p>
+
+    <p>
+        📷 Instagram:
+        <a href="https://www.instagram.com/beau_cure.pk/" target="_blank">
+            @beau_cure.pk
+        </a>
+    </p>
+
+    <p>© 2026 BeauCure. All Rights Reserved.</p>
+
+</footer>
+
+<script>
+
+function showProducts() {
+
+let skin =
+document.querySelector('input[name="skin"]:checked');
+
+if(!skin){
+document.getElementById("result").innerHTML =
+"Please select your skin type.";
+return;
+}
+
+if(skin.value=="oily"){
+
+document.getElementById("result").innerHTML =
+
+`
+<h3>Products For Oily Skin</h3>
+
+<ul>
+<li>Tea Tree Face Wash</li>
+<li>Niacinamide Serum</li>
+<li>Oil Free Moisturizer</li>
+<li>Clay Mask</li>
+</ul>
+`;
+
+}
+
+else if(skin.value=="dry"){
+
+document.getElementById("result").innerHTML =
+
+`
+<h3>Products For Dry Skin</h3>
+
+<ul>
+<li>Hydrating Cleanser</li>
+<li>Hyaluronic Acid Serum</li>
+<li>Rich Moisturizer</li>
+<li>Shea Butter Cream</li>
+</ul>
+`;
+
+}
+
+else{
+
+document.getElementById("result").innerHTML =
+
+`
+<h3>Products For Normal Skin</h3>
+
+<ul>
+<li>Gentle Face Wash</li>
+<li>Vitamin C Serum</li>
+<li>Daily Moisturizer</li>
+<li>Sunscreen SPF 50</li>
+</ul>
+`;
+
+}
+
+}
+
+</script>
+
+<script>
+
+function showFaceWashDetails() {
+let details = document.getElementById("facewash-details");
+
+if (details.style.display === "block") {
+details.style.display = "none";
+} else {
+details.style.display = "block";
+}
+}
+
+function showShampooDetails() {
+let details = document.getElementById("shampoo-details");
+
+if (details.style.display === "block") {
+details.style.display = "none";
+} else {
+details.style.display = "block";
+}
+}
+
+function showBiotinDetails() {
+let details = document.getElementById("biotin-details");
+
+if (details.style.display === "block") {
+details.style.display = "none";
+} else {
+details.style.display = "block";
+}
+}
+
+function showLipstickDetails() {
+let details = document.getElementById("lipstick-details");
+
+if (details.style.display === "block") {
+details.style.display = "none";
+} else {
+details.style.display = "block";
+}
+}
+
+function showMoisturizerDetails() {
+let details = document.getElementById("moisturizer-details");
+
+if (details.style.display === "block") {
+details.style.display = "none";
+} else {
+details.style.display = "block";
+}
+}
+
+function showBodyOilDetails() {
+let details = document.getElementById("bodyoil-details");
+
+if (details.style.display === "block") {
+details.style.display = "none";
+} else {
+details.style.display = "block";
+}
+}
+
+</script>
+
+<script>
+
+function showSerumDetails(){
+
+let details =
+document.getElementById("serum-details");
+
+if(details.style.display=="none"){
+
+details.style.display="block";
+
+}
+else{
+
+details.style.display="none";
+
+}
+
+}
+
+</script>
+
+<script>
+
+const menuBtn = document.querySelector(".menu-icon");
+const sideMenu = document.getElementById("sideMenu");
+
+menuBtn.addEventListener("click", function(){
+
+if(sideMenu.style.display === "block"){
+sideMenu.style.display = "none";
+}
+else{
+sideMenu.style.display = "block";
+}
+
+});
+
+</script>
+
+<script>
+
+let cartCount = 0;
+let total = 0;
+
+function addToCart(name, price, image){
+
+cartCount++;
+
+document.getElementById("cart-count").innerHTML=cartCount;
+
+total += price;
+
+document.getElementById("cart-total").innerHTML=total;
+
+document.getElementById("cart-items").innerHTML += `
+<div class="cart-item">
+<img src="${image}">
+<div>
+<b>${name}</b><br>
+Rs. ${price}
+</div>
+<button onclick="removeItem(this, ${price})">❌</button>
+</div>
+`;
+
+}
+
+function toggleCart(){
+
+let cart=document.getElementById("cart-box");
+
+if(cart.style.display=="block"){
+cart.style.display="none";
+}
+else{
+cart.style.display="block";
+}
+
+}
+
+function removeItem(button, price){
+
+    button.parentElement.remove();
+
+    cartCount--;
+    document.getElementById("cart-count").innerHTML = cartCount;
+
+    total -= price;
+    document.getElementById("cart-total").innerHTML = total;
+
+}
+
+function buyNow() {
+    alert("Thank you for shopping at BeauCure 💗");
+    window.location.href = "checkout.html";
+}
+</script>
+
+<script>
+
+function openLogin(){
+window.onload = function(){
+
+openLogin();
+
+}
+document.getElementById("loginPopup").style.display="block";
+
+}
+
+function closeLogin(){
+
+document.getElementById("loginPopup").style.display="none";
+
+}
+
+function login(){
+
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+if(user=="admin" && pass=="1234"){
+
+alert("Welcome to BeauCure ❤️");
+
+closeLogin();
+
+}
+else{
+
+alert("Invalid Username or Password");
+
+}
+
+}
+
+</script>
+
+<script>
+function openMenu() {
+    document.getElementById("sideMenu").style.left = "0";
+}
+
+function closeMenu() {
+    document.getElementById("sideMenu").style.left = "-320px";
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
+</script>
+
+<script>
+function showProducts() {
+
+    let skin = document.querySelector('input[name="skin"]:checked');
+
+    if (!skin) {
+        alert("Please select your skin type.");
+        return;
+    }
+
+    if (skin.value == "oily") {
+        window.location.href = "oily.html";
+    }
+
+    else if (skin.value == "dry") {
+        window.location.href = "dry.html";
+    }
+
+    else if (skin.value == "combination") {
+        window.location.href = "combination.html";
+    }
+
+    else if (skin.value == "sensitive") {
+        window.location.href = "sensitive.html";
+    }
+
+}
+</script>
+
+<script>
+
+function openSearch() {
+    document.getElementById("searchBox").style.display = "block";
+    document.getElementById("searchInput").focus();
+}
+
+</script>
+
+<script>
+
+function searchProduct(event) {
+
+    if (event.key === "Enter") {
+
+        let search = document.getElementById("searchInput").value.toLowerCase().trim();
+
+        if (search.includes("shampoo") || search.includes("hair")) {
+            window.location.href = "haircare.html";
+        }
+
+        else if (search.includes("serum") || search.includes("vitamin c") || search.includes("face wash") || search.includes("cleanser") || search.includes("sunscreen")) {
+            window.location.href = "skincare.html";
+        }
+
+        else if (search.includes("lipstick") || search.includes("foundation") || search.includes("makeup") || search.includes("blush")) {
+            window.location.href = "makeup.html";
+        }
+
+        else if (search.includes("supplement") || search.includes("protein") || search.includes("vitamin")) {
+            window.location.href = "supplements.html";
+        }
+
+        else {
+            alert("Product not found!");
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
